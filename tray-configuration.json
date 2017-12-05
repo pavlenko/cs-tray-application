@@ -1,0 +1,114 @@
+{
+  "name": "Server control",
+  "icon": "icon-server.png",
+  "services": [
+    "wampapache64"
+  ],
+  "states": {
+    "stopped": {
+      "label": "Stopped"
+    },
+    "partial": {
+      "label": "Partial"
+    },
+    "started": {
+      "label": "Started"
+    }
+  },
+  "actions": {
+    "start_all": {
+      "type": "TODO sequence action"
+    },
+    "restart_all": {
+      "type": "TODO sequence action"
+    },
+    "stop_all": {
+      "type": "run"
+    },
+    "exit": {
+      "type": "exit"
+    }
+  },
+  "menu_left": [
+    {
+      "label": "Apache",
+      "icon": "Resources\\icons\\service-apache.ico",
+      "children": [
+        {
+          "label": "Service",
+          "children": [
+            {
+              "label": "Start service",
+              "action_def": {
+                "type": "service_start",
+                "arguments": {
+                  "name": "wampapache64"
+                }
+              }
+            },
+            {
+              "label": "Stop service",
+              "action_def": {
+                "type": "service_stop",
+                "arguments": {
+                  "name": "wampapache64"
+                }
+              }
+            },
+            {
+              "label": "Restart service",
+              "action_def": {
+                "type": "service_restart",
+                "arguments": {
+                  "name": "wampapache64"
+                }
+              }
+            },
+            {
+              "type": "separator"
+            },
+            {
+              "label": "Install service",
+              "action_def": {
+                "type": "service_install",
+                "arguments": {
+                  "bin": "..\\..\\..\\tray-application-example\\bin\\httpd\\httpd-2.4.26-x64-vc15\\bin\\httpd.exe",
+                  "name": "wampapache64"
+                }
+              }
+            },
+            {
+              "label": "Uninstall service",
+              "action_def": {
+                "type": "service_uninstall",
+                "arguments": {
+                  "name": "wampapache64"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "label",
+      "label": "Server administration"
+    },
+    {
+      "label": "Start All Services",
+      "action_ref": "start_all"
+    },
+    {
+      "label": "Retart All Services",
+      "action_ref": "restart_all"
+    },
+    {
+      "label": "Stop All Services",
+      "action_ref": "stop_all"
+    },
+    {
+      "label": "Exit",
+      "action_ref": "exit"
+    }
+  ]
+}
